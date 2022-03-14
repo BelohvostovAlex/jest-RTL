@@ -31,20 +31,16 @@
 // export default App;
 
 import React from 'react'
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
-import { AboutPage } from './pages/AboutPage'
-import { MainPage } from './pages/MainPage'
+import {AppRouter} from './router/AppRouter'
+import {Navbar} from './components/Navbar/Navbar'
+
 
 export const App = () => {
   return (
-    <BrowserRouter>
-    <Link to={'/'} data-testid="main-link">about</Link>
-    <Link to={'about'} data-testid="about-link">main</Link>
-      <Routes>
-        <Route path='/about' element={<AboutPage />}/>
-        <Route path='/' element={<MainPage />}/>
-      </Routes>
-    </BrowserRouter>
+    <div>
+    <Navbar />
+    <AppRouter />
+    </div>
   )
 }
 
