@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Users } from "./Users";
 import axios from "axios";
 import { MemoryRouter } from "react-router-dom";
@@ -42,11 +42,9 @@ describe("testing Users", () => {
     expect(users.length).toBe(3);
     screen.debug();
   });
-  test("test redirect to details page", async () => {
+  test('redirect to details page', async () => {
     axios.get.mockReturnValue(response);
-    render(
-      renderWithRouter(<Users />, '/users')
-    );
+    renderWithRouter(<Users />)
     const users = await screen.findAllByTestId("user-item");
     expect(users.length).toBe(3);
     userEvent.click(users[0]);

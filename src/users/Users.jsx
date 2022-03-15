@@ -13,7 +13,7 @@ export const Users = () => {
         setUsers(data)
     }
   return (
-    <div>
+    <div data-testid="users-page">
         {users?.map(user => <Link to={`/users/${user.id}`} key={user.id} data-testid="user-item">{user.name}</Link>)}
     </div>
   )

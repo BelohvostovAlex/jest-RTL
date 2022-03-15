@@ -1,6 +1,6 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import App from './App';
+// import { render, screen, fireEvent } from '@testing-library/react';
+// import userEvent from '@testing-library/user-event';
+// import App from './App';
 
 // describe('testing app component', () => {
 //   test('renders learn react link', () => {
