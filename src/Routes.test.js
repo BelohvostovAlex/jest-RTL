@@ -1,15 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MemoryRouter } from "react-router-dom";
-import { App } from "./App";
+import { renderWithRouterAndStore } from "./test/helpers/renderWithRouterAndStore";
+import { Navbar } from "./components/Navbar/Navbar";
 
 describe("router test", () => {
   test("first test", () => {
-    render(
-      <MemoryRouter>
-        <App />
-      </MemoryRouter> 
-    );
+    renderWithRouterAndStore(<Navbar />)
     const mainLink = screen.getByTestId("main-link");
     const aboutLink = screen.getByTestId("about-link");
     expect(mainLink).toBeInTheDocument();
@@ -20,11 +16,7 @@ describe("router test", () => {
     expect(screen.getByTestId("main-page")).toBeInTheDocument();
   });
   test("error page", () => {
-    render(
-      <MemoryRouter initialEntries={["/assdadss"]}>
-        <App />
-      </MemoryRouter>
-    );
+    renderWithRouterAndStore(null, '/sdasdasd');
     expect(screen.getByTestId("not-found-page")).toBeInTheDocument();
   });
 });

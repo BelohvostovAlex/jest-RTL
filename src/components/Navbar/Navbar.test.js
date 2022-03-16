@@ -1,25 +1,25 @@
 import {screen} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { renderWithRouter } from '../../test/helpers/renderWithRouter'
+import { renderWithRouterAndStore } from '../../test/helpers/renderWithRouterAndStore'
 import { Navbar } from './Navbar'
 
 describe('navbar', () => {
     test('mainLink testing', () => {
-        renderWithRouter(<Navbar />)
+        renderWithRouterAndStore(<Navbar />)
         const mainLink = screen.getByTestId('main-link')
         expect(mainLink).toBeInTheDocument()
         userEvent.click(mainLink)
         expect(screen.getByTestId('main-page')).toBeInTheDocument()
     })
     test('aboutLink testing', () => {
-        renderWithRouter(<Navbar />)
+        renderWithRouterAndStore(<Navbar />)
         const aboutLink = screen.getByTestId('about-link')
         expect(aboutLink).toBeInTheDocument()
         userEvent.click(aboutLink)
         expect(screen.getByTestId('about-page')).toBeInTheDocument()
     })
     test('usersLink testing', () => {
-        renderWithRouter(<Navbar />)
+        renderWithRouterAndStore(<Navbar />)
         const usersLink = screen.getByTestId('users-link')
         expect(usersLink).toBeInTheDocument()
         userEvent.click(usersLink)
